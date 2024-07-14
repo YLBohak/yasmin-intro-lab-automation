@@ -26,7 +26,7 @@
  - push the file to your repo.
 
 ## Exercise
-- pressure value: 
-- led blinks when:
-- led is constant when:
-- buzzer plays when: 
+- pressure value: 99.9 kPa
+- led blinks when: leave a certain mode (=sensor)
+- led is constant when: not inside a specific mode
+- buzzer plays when: left a certain mode.
