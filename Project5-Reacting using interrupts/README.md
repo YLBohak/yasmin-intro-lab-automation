@@ -11,15 +11,16 @@
  - test that this works.
 
 ## Simulate additional long process
-- Add a delay(1000) to your loop.
+- Add a delay(1000) to your loop. 
+## added the delay before led is turned off
 - add Serial statements before and after the delay
 - test if lighting led still works. Why or why not?
-answer here: __________
+answer here: It does still work.
 
 ## Use interrupt to light led
 - Add code to create an interrupt pin (why can't it be the button pin?). Use a variable for this.
 - Short the interrupt pin with the button pin
-- test. Does it work?
+- test. Does it work? yes!
 
 ## Exercises
  - commit and upload your code in this project folder.
