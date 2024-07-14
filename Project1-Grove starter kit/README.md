@@ -28,5 +28,5 @@
 ## Exercise
 - pressure value: 99.9 kPa
 - led blinks when: leave a certain mode (=sensor)
-- led is constant when: not inside a specific mode
+- led is constant when: not inside a specific mode.
 - buzzer plays when: left a certain mode.
