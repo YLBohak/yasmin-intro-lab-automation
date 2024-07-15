@@ -38,3 +38,7 @@ The purpose of this project is to dim and increase the led light using the rotar
 
 
 
+## sample per second
+The sample per second was approximately 116.5 micro-seconds.
+![alt text](image.png)
+
