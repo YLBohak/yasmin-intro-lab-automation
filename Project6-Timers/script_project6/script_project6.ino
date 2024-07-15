@@ -6,6 +6,7 @@
   by Yasmin Bohak
 
   Interupt led on but off only 5 seconds after turned off
+  use MsTimer2
 */
 int ledPin = 4;
 int buttonPin = 2;//6;
