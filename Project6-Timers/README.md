@@ -31,4 +31,4 @@ add a screen shot from the logic analyzer below:
 - change the LED time ON from 5 seconds to 30 ms, measure in the scope the time the LED is ON. is it 30 ms? Why or why not?
 answer here: almost 30 ms
 paste a screen shot from the scope below:
-![alt text](image-2.png)
+![alt text](image-4.png)
