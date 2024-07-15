@@ -10,7 +10,7 @@
 int ledPin = 4;
 int buttonPin = 2;//6;
 int buttonState = LOW; 
-long t = 5000;
+long t = 30;
 
 //Libraries
 #include <MsTimer2.h>

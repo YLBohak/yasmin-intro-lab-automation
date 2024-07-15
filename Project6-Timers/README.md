@@ -26,8 +26,9 @@ add a screen shot from the logic analyzer below:
 
 ## There is still a 0.2 second delay when I measure with scoppy (see screenshot bellow, with settings). The delay implemented in the loop function of the script is 1 second, so the minor delay detected by scoppy is unrelated.
 
-![alt text](image.png)
+![alt text](image-1.png)
 
 - change the LED time ON from 5 seconds to 30 ms, measure in the scope the time the LED is ON. is it 30 ms? Why or why not?
-answer here: __________
+answer here: almost 30 ms
 paste a screen shot from the scope below:
+![alt text](image-2.png)
