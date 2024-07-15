@@ -10,6 +10,7 @@
 int ledPin = 4;
 int buttonPin = 2;//6;
 int buttonState = LOW; 
+long t = 5000;
 
 //Libraries
 #include <MsTimer2.h>
@@ -23,8 +24,8 @@ void setup() {
   // Attach interrupt to buttonPin, call the function on RISING edge
   attachInterrupt(digitalPinToInterrupt(buttonPin), buttonFun, RISING);
   //Set up the timmer so that it will activate ledOff when 5 seconds elapsed
-  MsTimer2::set(5000, ledOff); // Set timer to 5000 ms (5 seconds)
-
+  MsTimer2::set(t, ledOff); // Set timer to 5000 ms (5 seconds)
+  
 }
 
 void loop() {
@@ -43,6 +44,7 @@ void buttonFun() {
 void ledOff() {
    digitalWrite(ledPin, LOW); 
    Serial.println("led was turned off");
+   MsTimer2::stop();
 }
   
   
