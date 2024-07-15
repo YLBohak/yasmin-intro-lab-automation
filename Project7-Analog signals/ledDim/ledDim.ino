@@ -7,7 +7,7 @@
 int ledPin = 4;
 //int potentiometer = A0; //un-neccesary because default
 float value;
-int freq = 50;
+int freq = 30;//50;
 //Initialize PWM
 MD_PWM pwm = MD_PWM(ledPin);
 float counter = 0;
