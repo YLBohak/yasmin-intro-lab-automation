@@ -26,6 +26,7 @@
 2. The script should have a GUI (Graphical User Interface) using PySimpleGUI library. The GUI should have a response area to display messages.
 3. The script should be able to send a number over the serial port to the device. This number will be the time in seconds that the LED on the device should light up when a button is pressed.
     - For example, if the user enters '5' in the GUI, the LED on the device should light up for 5 seconds when the button is pressed.
+
 4. The device should respond with a number (0, 1, or 2) that corresponds to a specific state:
     - '0': LED off
     - '1': button and LED on
