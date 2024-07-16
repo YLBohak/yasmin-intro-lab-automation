@@ -52,6 +52,7 @@ void loop() {
     }
     if (wrong_input == true) {
       Serial.println("Only numbers (in ms) can be given as input, please try again.");
+      wrong_input = false;
     }
     else {
       Serial.println("I received: ");
