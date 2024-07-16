@@ -1,0 +1,6 @@
+Environments:
+- conda env list
+- conda create --name intro_lab python=3.11
+- If creating an environment doesnt work try first: config --set ssl_verify false
+- conda create --name intro_lab python=3.11
+- conda activate intro_lab

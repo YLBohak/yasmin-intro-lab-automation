@@ -32,15 +32,19 @@ The purpose of this project is to dim and increase the led light using the rotar
 - what happens when using 30Hz instead of 50Hz for the PWM?
 ## For the lower voltages I can see the led flikering, which was not present before. This makes sense, because by decreasing the frequency to 30 Hz, we are increasing the time interval for which there is no voltage supplied (length of lows increases.)
 
+
+
 ## Use PWM to control a servo motor
 
 - connect analog 2 in adalm (dark blue) to digital 7 in arduino
 - install Servo package if not already installed
 - initialize Servo package with pin 7
-- first check in adalm the range of the mapped values. What frequency is the Servo package using?
-- connect to servo using D7 breakout (ground on the left on the side of the led). connect plus to servo
+- first check in adalm the range of the mapped values. What frequency is the Servo package using? 
+## 2.7%-10.50% duty, meaning that only a small range of the pmw possible range (0-100%) is used in this case. Frequency of 50 Hz. 
+- connect to servo using D7 breakout (ground on the left on the side of the led). 
 - turn rotary to turn the servo
-- How does the range of the servo motor compare to the range of the rotary? Use the scope.
+- How does the range of the servo motor compare to the range of the rotary? Use the scope. 
+## The rotary has a range of 0-5 volts, and this translates to a range of % (duty cycle) in the servo (as it gets a PMW input).
 
 ## Exercises
 
