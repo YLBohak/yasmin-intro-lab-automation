@@ -6,6 +6,7 @@
 1. Understand PWM and when to use it
 1. Learn about MD_PWM package
 1. Learn about servo motors
+
 1. Understand arduino signal capabilities
 
 ## Adding a dimmer functionality to the LED
@@ -19,12 +20,17 @@ The purpose of this project is to dim and increase the led light using the rotar
 - Using the rotary value, update the PWM value. Note the range of values that can be used according to package documentation. Change your code accordingly.
 - test your code.
 
-- View in scope: Connect Analog 2 (dark blue) to pin 4 in arduino (LED output). Play with the times and triggers until you see the PWM change when turning the rotary. --> Scoppy crashes when I try to look at this...
-- View in voltmeter - stop scope first. See the average voltage change. --> I am not sure what this means. The volatage change depends on how much I turn the knob...
+- View in scope: Connect Analog 2 (dark blue) to pin 4 in arduino (LED output). Play with the times and triggers until you see the PWM change when turning the rotary. 
+## 
+- View in voltmeter - stop scope first. See the average voltage change.
+## The average volt change when the rotary is maximally open is: approx. 2.9 volts. See screenshot:
+![alt text](image-1.png)
+
  What is the duty cycle? 
-## meaning the % of time that it is "on" 
+## The duty cycle changes when turn the rotary. In the example in the screenshot it is approx. 72%.
+![alt text](image-2.png)
 - what happens when using 30Hz instead of 50Hz for the PWM?
-## For the lower voltages I can see flikering, which was not present before. This makes sense, because by decreasing the frequency to 30 Hz, we are increasing the time interval for which there is no voltage supplied (length of lows increases.)
+## For the lower voltages I can see the led flikering, which was not present before. This makes sense, because by decreasing the frequency to 30 Hz, we are increasing the time interval for which there is no voltage supplied (length of lows increases.)
 
 ## Use PWM to control a servo motor
 
