@@ -32,7 +32,7 @@ void setup() {
   Serial.begin(9600); // Initialize serial communication
 
   // Attach interrupt to buttonPin, call the function on RISING edge
-  attachInterrupt(digitalPinToInterrupt(buttonPin), buttonFun, RISING);
+  attachInterrupt(digitalPinToInterrupt(buttonPin), buttonFun, CHANGE);
   }
 
 void loop() {
@@ -45,18 +45,18 @@ void loop() {
     //If the input is not a digit, print error message and exist the loop
     value = value_read.toInt();
     for (int i = 0; i < value_read.length(); i++) {
-      if (!isDigit(value_read[i])) {
+      //if (!isDigit(value_read[i])) {
         // If input is not a digit print eror
-        wrong_input = true;
-      }
-    }
-    if (wrong_input == true) {
-      Serial.println("Only numbers (in ms) can be given as input, please try again.");
-      wrong_input = false;
-    }
-    else {
-      Serial.println("I received: ");
-      Serial.println(value);
+        //wrong_input = true;
+      //}
+    //}
+    //if (wrong_input == true) {
+      //Serial.println("Only numbers (in ms) can be given as input, please try again.");
+      //wrong_input = false;
+    //}
+    //else {
+    //Serial.println("I received: ");
+      //Serial.println(value);
       //Set up the timer is set up using input from serial monitor
       MsTimer2::set(value, turn_off); // Set timer to value ms 
     }
@@ -66,14 +66,20 @@ void loop() {
 
 // Interrupt service routine (ISR)
 void buttonFun() {
-   digitalWrite(ledPin, HIGH); 
-   MsTimer2::start();
-   Serial.println("led was turned on");
+   buttonState = digitalRead(buttonPin);
+   if (buttonState == HIGH) { 
+      digitalWrite(ledPin, HIGH); 
+      MsTimer2::start();
+      Serial.println("1"); //send back to python
+   }
+   else {
+    Serial.println("2"); //send back to python- button state is off
+   }
 }
 
 void turn_off() {
    digitalWrite(ledPin, LOW); 
-   Serial.println("led was turned off");
+   Serial.println("0"); //send back to python
    MsTimer2::stop();
 }
   
