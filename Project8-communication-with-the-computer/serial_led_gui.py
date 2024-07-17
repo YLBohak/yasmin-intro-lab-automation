@@ -20,7 +20,7 @@ def main():
     # Create the Window
     window = sg.Window('Led timed turn-off', layout)
 
-    ########
+    #Need to start thread outside of the while loop (otherwise new threads are continously generated)
     window.start_thread(lambda : write_read(window),'-thread-ended-')
 
     # Event Loop to process "events" and get the "values" of the inputs
@@ -36,7 +36,7 @@ def main():
         #If user wants us to process his/her input
         if event == 'Ok':
             if not values[0].isnumeric():
-                print('wrong input type, please enter number [s]')
+                print('wrong input type, please enter number [ms]')
             else:
                 print('thank you for you input', values[0], '[ms]')
                 #Send to the arduino here
