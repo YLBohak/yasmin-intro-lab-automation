@@ -6,6 +6,8 @@ import threading
 
 #Arduino: connect to board
 board = pymata4.Pymata4(com_port="COM4")
+#Need to know baudrate in order to use scoppy (115200)
+#print(board.baud_rate)
 #Arduino: define pins and set up led pin (no callback)
 LED_PIN = 4
 board.set_pin_mode_digital_output(LED_PIN)
@@ -74,7 +76,7 @@ while True:
 
     if event == 'Ok':
         if not values[0].isnumeric():
-            print('wrong input type, please enter number [s]')
+            print('wrong input type, please enter number [ms]')
         else:
             print('thank you for you input', values[0], '[ms]')
             #In this case we don't need to write the time to the arduino
