@@ -30,9 +30,9 @@
     - '0': LED off
     - '1': button and LED on
     - '2': button off
-
 5. The script should read the response from the device and update the GUI with the corresponding message.
 6. The script should continuously read from the serial port in parallel with the PySimpleGUI main loop.
+
 7. The script should handle any exceptions or errors that might occur during the communication with the device.
 8. The script should include comments explaining the functionality of each part of the code.
 9. The script should be written in a clean, organized, and efficient manner following good programming practices.

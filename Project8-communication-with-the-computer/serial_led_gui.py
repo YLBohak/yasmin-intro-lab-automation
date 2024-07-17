@@ -28,7 +28,8 @@ def main():
         if event == sg.WIN_CLOSED:
             break
 
-        #if event == 'Clear Output':
+        if event == 'Clear Output':
+            
 
 
         #If user wants us to process his/her input
