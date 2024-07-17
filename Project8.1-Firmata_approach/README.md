@@ -13,8 +13,7 @@
 1. Develop a Python script that communicates with an Arduino device using the pymata4 library.
 2. Set up a pin for digital input and monitor its changes.
 3. React to button presses on the Arduino. When the button is pressed, perform an action (e.g., print a message, turn on an LED).
-
-4. Initially, use the time.sleep() function to create a delay between button press checks. This version of the script should be named Reacting_button_press_pymata4_using_sleep.py. --> we can skip this stage.
+4. Initially, use the time.sleep() function to create a delay between button press checks. This version of the script should be named Reacting_button_press_pymata4_using_sleep.py. 
 
 5. Modify the script to use a timer instead of time.sleep(). This will allow the script to perform other tasks while waiting for the button press. This version of the script should be named Reacting_button_press_pymata4_using_timer.py.
 
