@@ -14,6 +14,7 @@ def main():
     layout = [  [sg.Text("How long would you like the led to remain on? (answer in ms)")],
             [sg.InputText(size=(30, 10))],
             [sg.Button('Ok')],
+            [sg.Button('Clear Output')],
             [sg.Output(size=(30, 10))]]
 
     # Create the Window
@@ -26,6 +27,9 @@ def main():
         # if user closes window, close window
         if event == sg.WIN_CLOSED:
             break
+
+        #if event == 'Clear Output':
+
 
         #If user wants us to process his/her input
         if event == 'Ok':
@@ -50,9 +54,9 @@ def write_read(window):
         #This line reads the input from the arduino 
         '''Wanto add  a lne that ys'''
         bytesWaiting = arduino.inWaiting() 
-        if(bytesWaiting != 0): # or bytesWaiting == 1 or bytesWaiting == 2
+        if bytesWaiting > 0: # or bytesWaiting == 1 or bytesWaiting == 2
             ar_res = arduino.read(bytesWaiting).decode().rstrip()
-            print(ar_res)
+            #print(ar_res)
             if ar_res.isnumeric():
                 ar_res = int(ar_res)
                 #This line generates an event that can be read by window.read() in the main section of the code
