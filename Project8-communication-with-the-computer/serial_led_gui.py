@@ -20,6 +20,9 @@ def main():
     # Create the Window
     window = sg.Window('Led timed turn-off', layout)
 
+    ########
+    window.start_thread(lambda : write_read(window),'-thread-ended-')
+
     # Event Loop to process "events" and get the "values" of the inputs
     while True:
         # Constantly read events and values given by user
@@ -28,9 +31,7 @@ def main():
         if event == sg.WIN_CLOSED:
             break
 
-        if event == 'Clear Output':
-            
-
+        #if event == 'Clear Output':
 
         #If user wants us to process his/her input
         if event == 'Ok':
@@ -41,7 +42,6 @@ def main():
                 #Send to the arduino here
                 arduino.write(bytes(values[0], 'utf-8')) 
             
-        window.start_thread(lambda : write_read(window),'-thread-ended-')
        
         if event == 'Serial':
             print(response_ar[str(values['Serial'])])
@@ -55,7 +55,8 @@ def write_read(window):
         #This line reads the input from the arduino 
         '''Wanto add  a lne that ys'''
         bytesWaiting = arduino.inWaiting() 
-        if bytesWaiting > 0: # or bytesWaiting == 1 or bytesWaiting == 2
+        
+        if bytesWaiting > 0: 
             ar_res = arduino.read(bytesWaiting).decode().rstrip()
             #print(ar_res)
             if ar_res.isnumeric():
