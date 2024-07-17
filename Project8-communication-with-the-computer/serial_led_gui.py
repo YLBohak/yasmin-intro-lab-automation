@@ -48,8 +48,8 @@ def main():
 def write_read(window): 
     while True:
         #This line reads the input from the arduino 
-        '''The line bellow is not working yet! Cant read input from arduino'''
-        bytesWaiting = arduino.inWaiting()
+        '''Wanto add  a lne that ys'''
+        bytesWaiting = arduino.inWaiting() 
         if(bytesWaiting != 0): # or bytesWaiting == 1 or bytesWaiting == 2
             ar_res = arduino.read(bytesWaiting).decode().rstrip()
             print(ar_res)
