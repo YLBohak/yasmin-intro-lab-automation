@@ -4,7 +4,7 @@ import serial
 #This script should be run only after burning sketch: serial_led to the arduino
 
 #Connect with arduino. change port if insert arduino into different USB port.
-arduino = serial.Serial(port='COM4', baudrate=9600, timeout=.1) 
+arduino = serial.Serial(port='COM4', baudrate=115200, timeout=.1) 
 
 #This dictionary stores the response to print to screen based on input from the arduino
 response_ar = {'0': 'LED off','1':'button and LED on','2':'button off'}
@@ -49,11 +49,15 @@ def write_read(window):
     while True:
         #This line reads the input from the arduino 
         '''The line bellow is not working yet! Cant read input from arduino'''
-        ar_res = arduino.readline().decode()#line()('utf-8').rstrip()
-        print(ar_res)
-        #This line generates an event that can be read by window.read() in the main section of the code
-        #Serial is the event name that we gave, ar_res is a variable that stores the arduino response
-        window.write_event_value('Serial',ar_res)
+        bytesWaiting = arduino.inWaiting()
+        if(bytesWaiting != 0): # or bytesWaiting == 1 or bytesWaiting == 2
+            ar_res = arduino.read(bytesWaiting).decode().rstrip()
+            print(ar_res)
+            if ar_res.isnumeric():
+                ar_res = int(ar_res)
+                #This line generates an event that can be read by window.read() in the main section of the code
+                #Serial is the event name that we gave, ar_res is a variable that stores the arduino response
+                window.write_event_value('Serial',ar_res)
 	   
 
 

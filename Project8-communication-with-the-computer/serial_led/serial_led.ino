@@ -29,7 +29,7 @@ bool wrong_input = false;
 void setup() {
   pinMode(ledPin, OUTPUT);          // Initialize the LED pin as an output
   pinMode(buttonPin, INPUT); // Initialize the button pin with internal pull-up
-  Serial.begin(9600); // Initialize serial communication
+  Serial.begin(115200); // Initialize serial communication
 
   // Attach interrupt to buttonPin, call the function on RISING edge
   attachInterrupt(digitalPinToInterrupt(buttonPin), buttonFun, CHANGE);
