@@ -20,7 +20,6 @@
 
 
 
-
 7. Handle any exceptions or errors that might occur during the communication with the Arduino.
 8. Include comments explaining the functionality of each part of the code.
 9. Write the script in a clean, organized, and efficient manner following good programming practices.
