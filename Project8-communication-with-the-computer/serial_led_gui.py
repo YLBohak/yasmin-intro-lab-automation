@@ -60,7 +60,7 @@ def write_read(window):
             ar_res = arduino.read(bytesWaiting).decode().rstrip()
             #print(ar_res)
             if ar_res.isnumeric():
-                ar_res = int(ar_res)
+                #ar_res = int(ar_res)
                 #This line generates an event that can be read by window.read() in the main section of the code
                 #Serial is the event name that we gave, ar_res is a variable that stores the arduino response
                 window.write_event_value('Serial',ar_res)
