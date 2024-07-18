@@ -50,12 +50,12 @@ void loop() {
   //calculate the angle from the y-axis output of the accelerometer (-1 to 1)
   //I chose to use the y-axis = board hold in front of your face and move left right (displaces the servo the least)
   yAcc = LIS.getAccelerationY();
-  Serial.print("y:"); Serial.print(LIS.getAccelerationY()); Serial.print("  ");
+  //Serial.print("x:"); Serial.print(LIS.getAccelerationX()); Serial.print("  ");
   //the y value is converted into a range between 0 and 2000, this will enable me to work with map
   valMap = (yAcc+1)*1000;
   //converts value from gravitational acceleration into angles between 0 and 150
   val = map(valMap, 0, 2000, 0, 150);
-  Serial.print("angle:"); Serial.print(valMap); Serial.print(" "); Serial.println(val);
+  //Serial.print("angle:"); Serial.print(valMap); Serial.print(" "); Serial.println(val);
   //write the value val (angle) to the servo
   myservo.write(val);  
   //set up the OLED screen
@@ -66,13 +66,12 @@ void loop() {
   Oled.println(val); // Print the Values  
   Oled.refreshDisplay();    // Update the Display 
   //Condition that if the valMap (angle)- if fulfilled, turn on buzzer
-  if (valMap == 0 | valMap == 2000)
+  if ((valMap == 0 | valMap == 2000) | LIS.getAccelerationX() == 1)
   { 
     tone(buzzerPin, 500, 500);
     //Print to screen buzzer state 
     Oled.print("Buzzer:"); 
     Oled.println("ON");
-    
   }
   else{
     //Print to screen buzzer state 
