@@ -7,6 +7,9 @@
 LIS3DHTR<TwoWire> LIS; //IIC
 //Changed name Wire to WIRE
 #define WIRE Wire
+float yAcc;
+int val;
+float valMap;
 
 
 void setup() {
@@ -27,8 +30,13 @@ void loop() {
   {
     Serial.println("LIS3DHTR didn't connect.");
   }
-  Serial.print("x:"); Serial.print(LIS.getAccelerationX()); Serial.print("  ");
+  //calculate the angle from the y-axis output of the accelerometer (-1 to 1)
+  //I chose to use the y-axis = board hold in front of your face and move left right (displaces the servo the least)
+  yAcc = LIS.getAccelerationY();
   Serial.print("y:"); Serial.print(LIS.getAccelerationY()); Serial.print("  ");
-  Serial.print("z:"); Serial.println(LIS.getAccelerationZ());
-  delay(500);
+  //converts value from gravitational acceleration into angles between 0 and 150
+  valMap = (yAcc+1)*1000;
+  val = map(valMap, 0, 2000, 0, 150);
+  Serial.print("angle:"); Serial.print(valMap); Serial.print(" "); Serial.println(val);
+  delay(1000);
 }
