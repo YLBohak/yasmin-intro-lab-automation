@@ -17,7 +17,9 @@ float yAcc;
 int val;
 float valMap;
 // create Servo object to control a servo
-Servo myservo;  
+Servo myservo; 
+//define the pin for the buzzer
+int buzzerPin = 5; 
 
 
 void setup() {
@@ -63,7 +65,21 @@ void loop() {
   Oled.print("Servo angle:");   
   Oled.println(val); // Print the Values  
   Oled.refreshDisplay();    // Update the Display 
-  //otherwise prints too fast to screen
-  delay(20);
+  //Condition that if the valMap (angle)- if fulfilled, turn on buzzer
+  if (valMap == 0 | valMap == 2000)
+  { 
+    tone(buzzerPin, 500, 500);
+    //Print to screen buzzer state 
+    Oled.print("Buzzer:"); 
+    Oled.println("ON");
+    
+  }
+  else{
+    //Print to screen buzzer state 
+    Oled.print("Buzzer:"); 
+    Oled.println("OFF");
+  }
+    //delay otherwise prints too fast to screen
+    delay(20);
 
 }
