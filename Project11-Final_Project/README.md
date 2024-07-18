@@ -25,3 +25,6 @@ Build a system that:
 2. paste an picture of the OLED display that shows the angle of the servo motor.
 3. add the csv file to the project
 4. add a video of the system in action?
+
+## Here is the video:
+<video controls src="WhatsApp Video 2024-07-18 at 15.55.31.mp4" title="Title"></video>
