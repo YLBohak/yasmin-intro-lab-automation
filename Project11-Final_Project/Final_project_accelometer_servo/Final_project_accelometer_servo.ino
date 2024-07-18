@@ -5,10 +5,14 @@
 #include <Wire.h>
 //import servo package
 #include <Servo.h>
+//import package used for OLED screen
+#include <U8x8lib.h>
 //Define the variable LIS as type LIS3DHTR<TwoWire>
 LIS3DHTR<TwoWire> LIS; //IIC
 //Changed name Wire to WIRE
 #define WIRE Wire
+//oled
+U8X8_SSD1306_128X64_NONAME_HW_I2C Oled(/* reset=*/ U8X8_PIN_NONE);
 float yAcc;
 int val;
 float valMap;
@@ -28,7 +32,12 @@ void setup() {
   //provide output measurements at this rate
   LIS.setOutputDataRate(LIS3DHTR_DATARATE_50HZ); 
   //attaches the servo on pin 7 to the Servo object
-  myservo.attach(7);  
+  myservo.attach(7);
+  //Initiate the OLED screen
+  Oled.begin();
+  // Sets the rotation of the screen
+  Oled.setFlipMode(1);  
+  
 }
 
 void loop() {
@@ -47,4 +56,14 @@ void loop() {
   Serial.print("angle:"); Serial.print(valMap); Serial.print(" "); Serial.println(val);
   //write the value val (angle) to the servo
   myservo.write(val);  
+  //set up the OLED screen
+  Oled.setFont(u8x8_font_chroma48medium8_r); 
+  Oled.setCursor(0, 0);    // Set the Coordinates 
+  //print the angle to the screen
+  Oled.print("Servo angle:");   
+  Oled.println(val); // Print the Values  
+  Oled.refreshDisplay();    // Update the Display 
+  //otherwise prints too fast to screen
+  delay(20);
+
 }

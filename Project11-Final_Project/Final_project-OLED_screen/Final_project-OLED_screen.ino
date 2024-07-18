@@ -19,9 +19,7 @@ void loop() {
   Oled.setFont(u8x8_font_chroma48medium8_r); 
   Oled.setCursor(0, 33);    // Set the Coordinates 
   Oled.print("The angle is:");   
-  Oled.print(random_value); // Print the Values  
+  Oled.print(random_value); 
   Oled.refreshDisplay();    // Update the Display 
-
-  
-
+  delay(1000);
 }
